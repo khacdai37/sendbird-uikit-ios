@@ -698,13 +698,12 @@ open class SBUBaseChannelViewModel: NSObject {
                 )
             }
         }
-        
+
+        sortAllMessageList(needReload: needReload)
         if needMarkAsRead, let channel = self.channel as? GroupChannel, !self.isThreadMessageMode {
             channel.markAsRead { [weak self] _ in
                 self?.sortAllMessageList(needReload: needReload)
             }
-        } else {
-            self.sortAllMessageList(needReload: needReload)
         }
     }
     
